@@ -1,0 +1,115 @@
+/* Configuración General */
+body {
+    background-color: #1a1a1a;
+    font-family: 'Bangers', 'Impact', sans-serif;
+    margin: 0;
+    padding: 20px;
+    color: white;
+}
+
+.comic-container {
+    max-width: 900px;
+    margin: 0 auto;
+    background-color: #eee;
+    padding: 20px;
+    border: 5px solid #000;
+    box-shadow: 15px 15px 0px #f0da50; /* Estilo pop-art */
+}
+
+/* Encabezado */
+.comic-header {
+    text-align: center;
+    background: #e62429; /* Rojo Marvel */
+    padding: 10px;
+    margin-bottom: 20px;
+    border: 4px solid black;
+}
+
+/* Grid de la Historieta */
+.page {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-auto-rows: 300px;
+    gap: 15px;
+    margin-bottom: 40px;
+}
+
+.panel {
+    position: relative;
+    border: 4px solid black;
+    overflow: hidden;
+    background-color: #fff;
+}
+
+.panel img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    filter: contrast(1.1) saturate(1.2); /* Efecto cómic */
+    transition: transform 0.3s;
+}
+
+.panel:hover img {
+    transform: scale(1.05);
+}
+
+/* Paneles Especiales */
+.panel-1 { grid-column: span 2; } /* Primera viñeta ancha */
+.panel-wide { grid-column: span 2; grid-row: span 1.5; }
+
+/* Globos de Texto y Cartelas */
+.caption {
+    position: absolute;
+    top: 0;
+    left: 0;
+    background: #f0da50;
+    color: black;
+    padding: 5px 15px;
+    border-right: 3px solid black;
+    border-bottom: 3px solid black;
+    font-weight: bold;
+    text-transform: uppercase;
+}
+
+.caption.bottom {
+    top: auto;
+    bottom: 0;
+    width: 100%;
+    text-align: center;
+    border-right: none;
+    border-top: 3px solid black;
+}
+
+.bubble {
+    position: absolute;
+    top: 20px;
+    background: white;
+    color: black;
+    border-radius: 50%;
+    padding: 15px;
+    width: 140px;
+    font-size: 0.9rem;
+    line-height: 1.2;
+    border: 2px solid black;
+    box-shadow: 3px 3px 0 rgba(0,0,0,0.2);
+}
+
+.bubble::after {
+    content: '';
+    position: absolute;
+    bottom: -15px;
+    left: 20px;
+    border-width: 15px 15px 0 0;
+    border-style: solid;
+    border-color: white transparent transparent transparent;
+}
+
+.bubble.right { right: 20px; }
+.bubble.left { left: 20px; }
+
+/* Separador de Páginas */
+.page-break {
+    border: none;
+    border-top: 10px dashed #000;
+    margin: 40px 0;
+}
